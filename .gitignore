@@ -1,0 +1,11 @@
+# Ignore everything by default
+*
+
+# Keep Claude Code implementation files
+!.gitignore
+!CLAUDE.md
+!.claude/
+!.claude/**
+
+# Ignore macOS files
+.DS_Store

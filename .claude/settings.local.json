@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(pdflatex:*)",
+      "Bash(bibtex:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(cd:*)",
+      "Bash(python:*)",
+      "Bash(chmod:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "FILE_PATH=$(cat | jq -r '.tool_input.file_path // empty'); if echo \"$FILE_PATH\" | grep -q 'raw_research/.*\\.md$'; then python3 \"$CLAUDE_PROJECT_DIR/.claude/validators/check_research_output.py\" \"$FILE_PATH\" 2>&1 || true; fi",
+            "timeout": 30,
+            "statusMessage": "Validating research output..."
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude Code needs your attention\" with title \"Market Research Pipeline\"'"
+          }
+        ]
+      }
+    ]
+  }
+}
