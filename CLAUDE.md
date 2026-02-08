@@ -22,9 +22,10 @@ This launches the full research pipeline. The topic can be a simple name ("aquac
         ▼
 ┌─── PHASE 1: RESEARCH (parallel) ───┐
 │  market-sizer                      │
-│  competitor-mapper                 │──▶ {project}/raw_research/
-│  customer-researcher               │
+│  competitor-mapper                 │
+│  customer-researcher               │──▶ {project}/raw_research/
 │  trend-scanner                     │
+│  latent-demand-researcher          │
 └────────────────────────────────────┘
         │
         ▼
@@ -71,6 +72,7 @@ This launches the full research pipeline. The topic can be a simple name ("aquac
 | competitor-mapper | Player profiles, funding, positioning, M&A |
 | customer-researcher | Pain points, buyer personas, willingness to pay |
 | trend-scanner | Technology shifts, regulatory changes, investment patterns |
+| latent-demand-researcher | Non-consumption, workarounds, friction points, market expansion potential |
 | research-validator | Quality gate checking sources and completeness |
 | opportunity-analyst | Cross-references data to identify and rank opportunities |
 | competitive-analyst | Strategic white space and competitive dynamics |
@@ -88,6 +90,7 @@ Each research project creates:
 │   ├── competitors.md
 │   ├── customer_insights.md
 │   ├── trends.md
+│   ├── latent_demand.md
 │   └── _validation.md
 ├── analysis/
 │   ├── opportunities.md
